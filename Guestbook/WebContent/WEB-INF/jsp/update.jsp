@@ -31,12 +31,13 @@
         	<h2></h2><p></p>
     		<h1 id="login_message">아래의 양식을 채우고 확인 버튼을 누르세요</h1>
     <p></p>
-    <form:form method="POST" action="/Guestbook/hello" modelAttribute="posting">
+    <form:form method="POST" action="/Guestbook/update" modelAttribute="posting">
       <table>
         <tr>
           <th><form:label path="Email">Email:</form:label></th>
           <td>
-        	<form:input path="Email" />
+        	<form:input path="Email" value="${email}" />
+        	<form:input path="Id" type="hidden" value="${id}" />
           </td>
         </tr>
 
@@ -48,7 +49,7 @@
         </tr>
 
         <tr>
-          <th><form:label path="Content" > 내용:</form:label></th>
+          <th><form:label path="Content"> 내용:</form:label></th>
             <td>
 				<form:textarea path="Content" id="my-text-box" />
             </td>
@@ -62,31 +63,7 @@
         </table>
       </form:form>
       </div>
-            
-            <div class="cleaner_with_height">&nbsp;</div>
-            
-       <jsp:useBean id="postings" scope="request" class="java.util.ArrayList" type="java.util.ArrayList<Posting>"/>
-		<%
-		for(Posting posting : postings) {
-		%>
-		<p>
-		<%=posting.getEmail()%><br>
-		<%=posting.getContent()%><br>
-		created time: <%=posting.getCreatedtime().toString()%><br>
-		<%
-	    if( posting.getModfiedtime() != null ) {
-	    %>
-	    	modified time: <%=posting.getModfiedtime() %><br>
-	    <% } %>
-		<a href="/Guestbook/update?id=<%=posting.getId()%>&content=<%=posting.getContent()%>&email=<%=posting.getEmail()%>">수정하기</a><br>
-		</p>
-		<%} %>     
-        </div> <!-- end of content right -->
-    
-    	<div class="cleaner_with_height">&nbsp;</div>
-    </div> <!-- end of content -->
-    
-    
+             
     
 
 </div> <!-- end of container -->

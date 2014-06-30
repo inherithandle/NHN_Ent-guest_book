@@ -1,7 +1,9 @@
 package com.guestbook;
 
 import java.util.List;
+
 import javax.sql.DataSource;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 
 
@@ -18,7 +20,7 @@ public class PostingJDBCTemplate implements PostingDAO {
       String SQL = "insert into Postings (password, content, email, created_time) values (?, ?, ?, now())";
       
       jdbcTemplateObject.update( SQL, Password, Content, Email);
-      // System.out.println("Created Record Name = " + name + " Age = " + age);
+      
       return;
    }
 
@@ -27,6 +29,13 @@ public class PostingJDBCTemplate implements PostingDAO {
       List <Posting> postings = jdbcTemplateObject.query(SQL, 
                                 new PostingMapper());
       return postings;
+   }
+   
+   public void update(Integer id, String Email, String Content, String Password) {
+	   String SQL = "update Postings SET modified_time=now(), content=?, email=? where password = ? and posting_id = ?";
+	   
+	   jdbcTemplateObject.update( SQL, Content, Email, Password, id);
+	   return;
    }
    
   

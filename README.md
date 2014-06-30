@@ -1,9 +1,9 @@
 NHN_Ent-guest_book
 ==================
 
-implementation of guest book.
+implementation of guestbook.
 
-mysql과 spring frame work를 이용하여 최소로 구현했습니다.  
+mysql과 spring framework를 이용하여 최소로 구현했습니다.  
 cubrid, ibatis를 연동하여 나중에 커밋할 예정입니다.  
 
 데이터베이스 커넥션 관련 객체와 DAO는 Guestbook/WEB-INF/Guestbook-servlet.xml에 bean으로 등록되어있습니다.  

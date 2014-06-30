@@ -3,15 +3,15 @@ package com.guestbook;
 import java.util.Date;
 
 public class Posting {
-	Integer 	Posting_id;
+	Integer 	Id;
 	String		Password;
 	String		Content;
 	String		Email;
 	Date		Created_time;
 	Date		Modified_time;
 	
-	public void setId(Integer Posting_id) {
-		this.Posting_id = Posting_id;
+	public void setId(Integer Id) {
+		this.Id = Id;
 	}
 	
 	public void setCreatedtime(Date Created_time) {
@@ -42,11 +42,19 @@ public class Posting {
 		return Created_time;
 	}
 	
+	public Date getModfiedtime() {
+		return Modified_time;
+	}
+	
 	public String getEmail() {
 		return Email;
 	}
 	
 	public String getPassword() {
 		return Password;
+	}
+	
+	public Integer getId() {
+		return Id;
 	}
 }
