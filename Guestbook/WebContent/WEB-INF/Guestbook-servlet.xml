@@ -18,7 +18,17 @@
    
    
    <!-- database information -->
-    
+   
+   <!-- cubrid connection port number, jar. -->
+   <bean id="dataSource" 
+      class="org.apache.commons.dbcp.BasicDataSource">
+      <property name="driverClassName" value="cubrid.jdbc.driver.CUBRIDDriver"/>
+      <property name="url" value="jdbc:cubrid:10.211.55.8:33000:Guestbook:::"/>
+      <property name="username" value="dba"/>
+      <property name="password" value="macbuntu12"/>
+   </bean>
+   
+   <!--  mysql connection. this is used by the old version of web-app.  
     <bean id="dataSource" 
       class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -26,7 +36,9 @@
       <property name="username" value="root"/>
       <property name="password" value="macbuntu12"/>
    </bean>
-	    
+	-->
+	
+	
    <!-- Definition for studentJDBCTemplate bean -->
    <bean id="postingJDBCTemplate" 
       class="com.guestbook.PostingJDBCTemplate">
